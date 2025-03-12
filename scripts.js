@@ -1,5 +1,4 @@
-// 🔹 Asegurar que la API apunta al servidor correcto
-const API_URL = "https://validacioncliente.azurewebsites.net"; // Cambiar a producción
+const API_URL = "https://validacioncliente.azurewebsites.net"; 
 
 // Obtener el Lead ID de la URL
 function obtenerLeadId() {
@@ -27,7 +26,7 @@ document.addEventListener("DOMContentLoaded", function () {
             });
 
             if (response.ok) {
-                alert("Número confirmado correctamente.");
+                window.location.href = "https://www.tecniseguros.com/cotizacion_gracias/";
             } else {
                 alert("Error al confirmar número.");
             }
@@ -57,7 +56,7 @@ document.addEventListener("DOMContentLoaded", function () {
             });
 
             if (response.ok) {
-                alert("Número actualizado correctamente.");
+                window.location.href = "https://www.tecniseguros.com/cotizacion_gracias/";
             } else {
                 alert("Error al actualizar número.");
             }
