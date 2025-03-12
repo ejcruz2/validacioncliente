@@ -1,0 +1,89 @@
+/* Importar fuente similar a Dynamics 365 */
+@import url('https://fonts.googleapis.com/css2?family=Segoe+UI:wght@400;600&display=swap');
+
+/* Estilo general */
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #f3f3f3;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Contenedor principal */
+.container {
+    background: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 320px;
+}
+
+/* Título */
+h2 {
+    font-size: 20px;
+    color: #005a9e;
+    margin-bottom: 20px;
+}
+
+/* Grupo de entrada */
+.input-group {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+label {
+    font-size: 14px;
+    font-weight: 600;
+    display: block;
+    margin-bottom: 5px;
+}
+
+input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #d0d0d0;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+/* Grupo de botones */
+.button-group {
+    display: flex;
+    justify-content: space-between;
+}
+
+/* Estilos de botones */
+.btn {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background 0.3s ease;
+}
+
+/* Botón primario (Confirmar) */
+.btn-primary {
+    background: #0078d4;
+    color: white;
+}
+
+.btn-primary:hover {
+    background: #005a9e;
+}
+
+/* Botón secundario (Cambiar Número) */
+.btn-secondary {
+    background: #e6e6e6;
+    color: #333;
+}
+
+.btn-secondary:hover {
+    background: #c8c8c8;
+}
