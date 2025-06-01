@@ -1,4 +1,4 @@
-const API_URL = "https://validacioncliente.azurewebsites.net"; 
+const API_URL = "https://validacioncliente.azurewebsites.net";
 
 // Obtener el Lead ID de la URL
 function obtenerLeadId() {
@@ -6,20 +6,21 @@ function obtenerLeadId() {
     return params.get("leadid");
 }
 
-// Manejo de eventos cuando la página está lista
+// Cuando la página esté lista
 document.addEventListener("DOMContentLoaded", function () {
     const leadId = obtenerLeadId();
+
     if (!leadId) {
         alert("Error: No se encontró Lead ID.");
         return;
     }
 
-    // Botón de Confirmar Número (Ahora con CORS explícito)
+    // Botón Confirmar Número
     document.getElementById("btnConfirmar").addEventListener("click", async function () {
         try {
-            const response = await fetch(`${API_URL}/confirmar_numero?leadid=${leadId}`, {
+            const response = await fetch(`${API_URL}/api/confirmar_numero?leadid=${leadId}`, {
                 method: "GET",
-                mode: "cors", // 🔹 Forzar CORS
+                mode: "cors",
                 headers: {
                     "Accept": "application/json"
                 }
@@ -31,11 +32,12 @@ document.addEventListener("DOMContentLoaded", function () {
                 alert("Error al confirmar número.");
             }
         } catch (error) {
+            console.error("Error en la solicitud:", error);
             alert("No se pudo conectar con el servidor.");
         }
     });
 
-    // Botón de Cambiar Número con validación
+    // Botón Cambiar Número
     document.getElementById("btnCambiar").addEventListener("click", async function () {
         const nuevoTelefono = document.getElementById("telefono").value.trim();
 
@@ -45,14 +47,17 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
         try {
-            const response = await fetch(`${API_URL}/cambiar_numero`, {
+            const response = await fetch(`${API_URL}/api/cambiar_numero`, {
                 method: "POST",
-                mode: "cors", // 🔹 Forzar CORS
+                mode: "cors",
                 headers: {
                     "Content-Type": "application/json",
                     "Accept": "application/json"
                 },
-                body: JSON.stringify({ leadid: leadId, telefono: nuevoTelefono })
+                body: JSON.stringify({
+                    leadid: leadId,
+                    telefono: nuevoTelefono
+                })
             });
 
             if (response.ok) {
@@ -61,6 +66,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 alert("Error al actualizar número.");
             }
         } catch (error) {
+            console.error("Error en la solicitud:", error);
             alert("No se pudo conectar con el servidor.");
         }
     });
