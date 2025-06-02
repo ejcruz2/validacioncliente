@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", async function () {
         if (response.ok) {
             const data = await response.json();
             // Suponiendo que la respuesta tenga una propiedad "telefono"
-            document.getElementById("telefono").value = data.telefono;
+            document.getElementById("telefono").value = data.telefono || "";
         } else {
             console.warn("No se pudo obtener el número actual.");
         }
@@ -36,30 +36,8 @@ document.addEventListener("DOMContentLoaded", async function () {
         console.error("Error al obtener el número:", error);
     }
 
-    // Botón Confirmar Número
+    // Botón Confirmar Número (ahora tiene la lógica de "cambiar número")
     document.getElementById("btnConfirmar").addEventListener("click", async function () {
-        try {
-            const response = await fetch(`${API_URL}/api/confirmar_numero?leadid=${leadId}`, {
-                method: "GET",
-                mode: "cors",
-                headers: {
-                    "Accept": "application/json"
-                }
-            });
-
-            if (response.ok) {
-                window.location.href = "https://www.tecniseguros.com/individual-familias/";
-            } else {
-                alert("Error al confirmar número.");
-            }
-        } catch (error) {
-            console.error("Error en la solicitud:", error);
-            alert("No se pudo conectar con el servidor.");
-        }
-    });
-
-    // Botón Cambiar Número
-    document.getElementById("btnCambiar").addEventListener("click", async function () {
         const nuevoTelefono = document.getElementById("telefono").value.trim();
 
         if (!/^\d{8}$/.test(nuevoTelefono)) {
