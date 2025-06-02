@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", function () {
             });
 
             if (response.ok) {
-                window.location.href = "https://www.tecniseguros.com/cotizacion_gracias/";
+                window.location.href = "https://www.tecniseguros.com/individual-familias/";
             } else {
                 alert("Error al confirmar número.");
             }
@@ -61,7 +61,7 @@ document.addEventListener("DOMContentLoaded", function () {
             });
 
             if (response.ok) {
-                window.location.href = "https://www.tecniseguros.com/cotizacion_gracias/";
+                window.location.href = "https://www.tecniseguros.com/individual-familias/";
             } else {
                 alert("Error al actualizar número.");
             }
