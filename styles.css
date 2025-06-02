@@ -77,13 +77,3 @@ input {
 .btn-primary:hover {
     background: #005a9e;
 }
-
-/* Botón secundario (Cambiar Número) */
-.btn-secondary {
-    background: #e6e6e6;
-    color: #333;
-}
-
-.btn-secondary:hover {
-    background: #c8c8c8;
-}
